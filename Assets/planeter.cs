@@ -25,6 +25,10 @@ public class planeter : MonoBehaviour
 
     [Header("wylaczanie i wlaczanie")]
     public GameObject[] coWylaczyc;
+
+    [Header("Dzwieki")]
+    public AudioSource taskInProgress;
+    public AudioSource taskComplete;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +55,7 @@ public class planeter : MonoBehaviour
         cisnienieTxT.GetComponent<TextMeshProUGUI>().text = cisnienie.ToString() + "hPa";
         if (!temperaturaTxT.transform.parent.gameObject.activeInHierarchy && !wodaTxT.transform.parent.gameObject.activeInHierarchy && !cisnienieTxT.transform.parent.gameObject.activeInHierarchy)
         {
+            taskComplete.Play();
             foreach (GameObject item in coWylaczyc)
             {
                 item.SetActive(true);
@@ -69,6 +74,7 @@ public class planeter : MonoBehaviour
         {
             _temperatura = true;
             temperaturaTxT.transform.parent.gameObject.SetActive(false);
+            taskInProgress.Play();
         }
     }
     public void podwyzszWode()
@@ -76,6 +82,7 @@ public class planeter : MonoBehaviour
         woda = "unlimited";
         _woda = true;
         wodaTxT.transform.parent.gameObject.SetActive(false);
+        taskInProgress.Play();
     }
     public void podnizszWode()
     {
@@ -92,6 +99,7 @@ public class planeter : MonoBehaviour
         {
             _cisnienie = true;
             cisnienieTxT.transform.parent.gameObject.SetActive(false);
+            taskInProgress.Play();
         }
     }
 }

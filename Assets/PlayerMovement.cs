@@ -12,6 +12,16 @@ public class PlayerMovement : MonoBehaviour
     public GameObject coDotyka;
     public planeter pter;
     public GameObject _isMoving;
+    [Header("Strony")]
+    public GameObject prawo;
+    public GameObject lewo;
+    public GameObject dol;
+    public GameObject gora;
+    [Header("temp")]
+    bool czyJuzStartowal;
+    public AudioSource fstart;
+    public GameObject partiklesy;
+    
 
     private void Awake()
     {
@@ -19,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
     }
     void Start()
     {
-
     }
 
 
@@ -37,25 +46,60 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position += Vector3.right * moveSpeed * Time.deltaTime;
             transform.rotation = Quaternion.Euler(0, 0, -90);
-
+            WylaczWszystkieInne(prawo);
+            if (!czyJuzStartowal)
+            {
+                firststart();
+                czyJuzStartowal = true;
+            }
         }
         else if (Input.GetKey(KeyCode.A))
         {
             transform.position += Vector3.right * -moveSpeed * Time.deltaTime;
             transform.rotation = Quaternion.Euler(0, 0, 90);
+            WylaczWszystkieInne(lewo);
+            if (!czyJuzStartowal)
+            {
+                firststart();
+                czyJuzStartowal = true;
+            }
         }
 
         else if (Input.GetKey(KeyCode.W))
         {
             transform.position += Vector3.up * moveSpeed * Time.deltaTime;
             transform.rotation = Quaternion.Euler(0, 0, 0);
-
+            WylaczWszystkieInne(gora);
+            if (!czyJuzStartowal)
+            {
+                firststart();
+                czyJuzStartowal = true;
+            }
         }
         else if (Input.GetKey(KeyCode.S))
         {
             transform.position += Vector3.up * -moveSpeed * Time.deltaTime;
             transform.rotation = Quaternion.Euler(0, 0, 180);
+            WylaczWszystkieInne(dol);
+            if (!czyJuzStartowal)
+            {
+                firststart();
+                czyJuzStartowal = true;
+            }
         }
+    }
+    void firststart()
+    {
+        fstart.Play();
+        partiklesy.SetActive(true);
+    }
+    void WylaczWszystkieInne(GameObject ktory)
+    {
+        prawo.SetActive(false);
+        lewo.SetActive(false);
+        dol.SetActive(false);
+        gora.SetActive(false);
+        ktory.SetActive(true);
     }
     void WykrywaniePredkosci()
     {

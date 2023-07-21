@@ -31,9 +31,13 @@ public class planeter : MonoBehaviour
     }
     public void Nowa()
     {
+        temperaturaTxT.transform.parent.gameObject.SetActive(true);
+        wodaTxT.transform.parent.gameObject.SetActive(true);
+        cisnienieTxT.transform.parent.gameObject.SetActive(true);
+
         planeta.GetComponent<SpriteRenderer>().sprite = planetaTexture;
-        temperautura = 200;
-        cisnienie = 1200;
+        temperautura = Random.Range(50, 100);
+        cisnienie = Random.Range(1200, 1600);
         foreach (GameObject item in coWylaczyc)
         {
             item.SetActive(false);

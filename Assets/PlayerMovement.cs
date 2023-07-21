@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public bool dotyka;
     public GameObject coDotyka;
     public planeter pter;
+    public GameObject _isMoving;
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         Movement();
         WykrywaniePredkosci();
         wykrywanieWejsciaDoPlanety();
+        partikle();
     }
 
     void Movement()
@@ -96,8 +98,15 @@ public class PlayerMovement : MonoBehaviour
             dotyka = false;
             pter.gameObject.SetActive(true);
             pter.planetaTexture = coDotyka.GetComponent<SpriteRenderer>().sprite;
-            pter.Nowa();
             Destroy(coDotyka);
+            pter.Nowa();
+            
         }
+    }
+
+    void partikle()
+    {
+        if (isMoving) _isMoving.SetActive(true);
+        else _isMoving.SetActive(false);
     }
 }

@@ -96,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
             dotyka = false;
             pter.gameObject.SetActive(true);
             pter.planetaTexture = coDotyka.GetComponent<SpriteRenderer>().sprite;
+            pter.Nowa();
             Destroy(coDotyka);
         }
     }

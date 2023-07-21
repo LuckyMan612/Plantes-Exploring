@@ -7,6 +7,10 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5;
     Vector3 pozycja;
     public bool isMoving;
+    public GameObject[] coUruchomicPrzyKolizjiZPlaneta;
+    public bool dotyka;
+    public GameObject coDotyka;
+    public planeter pter;
 
     private void Awake()
     {
@@ -22,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Movement();
         WykrywaniePredkosci();
+        wykrywanieWejsciaDoPlanety();
     }
 
     void Movement()
@@ -56,5 +61,42 @@ public class PlayerMovement : MonoBehaviour
         else isMoving = false;
         pozycja = transform.position;
         
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("planeta"))
+        {
+            Debug.Log("dotykanie planety collision");
+            foreach (GameObject item in coUruchomicPrzyKolizjiZPlaneta)
+            {
+                item.SetActive(true);
+            }
+            dotyka = true;
+            coDotyka = collision.gameObject;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("planeta"))
+        {
+            Debug.Log("wyjscie z dotykania planety collision");
+            foreach (GameObject item in coUruchomicPrzyKolizjiZPlaneta)
+            {
+                item.SetActive(false);
+            }
+            dotyka = false;
+            coDotyka = null;
+        }
+    }
+    
+    void wykrywanieWejsciaDoPlanety()
+    {
+        if (dotyka && Input.GetKey(KeyCode.E))
+        {
+            dotyka = false;
+            pter.gameObject.SetActive(true);
+            pter.planetaTexture = coDotyka.GetComponent<SpriteRenderer>().sprite;
+            Destroy(coDotyka);
+        }
     }
 }

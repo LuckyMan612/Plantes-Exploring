@@ -14,7 +14,7 @@ public class gwiazdy : MonoBehaviour
     public GameObject prawo;
     public GameObject gora;
     public GameObject dol;
-    public bool test;
+    public PlayerMovement pm;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,7 @@ public class gwiazdy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (test)
+        if (pm.isMoving)
         {
             foreach (GameObject item in gwiazdaList)
             {

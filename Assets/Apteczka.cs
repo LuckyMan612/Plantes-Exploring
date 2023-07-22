@@ -5,6 +5,8 @@ using UnityEngine;
 public class Apteczka : MonoBehaviour
 {
     public GameObject apteczka;
+    public GameObject dzwiekPb;
+    public AudioClip dzwiekSlimu;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class Apteczka : MonoBehaviour
         {
             collision.gameObject.GetComponent<hpIBoost>().hp = 200;
             apteczka.gameObject.SetActive(false);
+            Dzwiek();
             Invoke("odrodzenie", 5);
         }
     }
@@ -31,11 +34,19 @@ public class Apteczka : MonoBehaviour
         {
             collision.gameObject.GetComponent<hpIBoost>().hp = 200;
             apteczka.gameObject.SetActive(false);
+            Dzwiek();
             Invoke("odrodzenie", 5);
         }
     }
     void odrodzenie()
     {
         apteczka.gameObject.SetActive(true);
+    }
+    void Dzwiek()
+    {
+        GameObject zrespiony = Instantiate(dzwiekPb);
+        zrespiony.GetComponent<AudioSource>().clip = dzwiekSlimu;
+        zrespiony.GetComponent<AudioSource>().volume = 0.7f;
+        zrespiony.GetComponent<AudioSource>().Play();
     }
 }

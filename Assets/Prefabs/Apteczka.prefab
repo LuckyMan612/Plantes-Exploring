@@ -74,6 +74,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   apteczka: {fileID: 6143008718476325909}
+  dzwiekPb: {fileID: 3422122742021021796, guid: a85df07ca0fe48346920efa8a2f55651, type: 3}
+  dzwiekSlimu: {fileID: 8300000, guid: 14baf74c6c64dcd4896aa9d2afac78eb, type: 3}
 --- !u!50 &6143008717847007998
 Rigidbody2D:
   serializedVersion: 4

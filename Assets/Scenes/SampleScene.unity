@@ -914,6 +914,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   apteczka: {fileID: 709491083}
+  dzwiekPb: {fileID: 3422122742021021796, guid: a85df07ca0fe48346920efa8a2f55651, type: 3}
+  dzwiekSlimu: {fileID: 8300000, guid: 14baf74c6c64dcd4896aa9d2afac78eb, type: 3}
 --- !u!61 &184678147
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1085,6 +1087,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   apteczka: {fileID: 164125319}
+  dzwiekPb: {fileID: 3422122742021021796, guid: a85df07ca0fe48346920efa8a2f55651, type: 3}
+  dzwiekSlimu: {fileID: 8300000, guid: 14baf74c6c64dcd4896aa9d2afac78eb, type: 3}
 --- !u!61 &227275224
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1728,6 +1732,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   apteczka: {fileID: 1834152237}
+  dzwiekPb: {fileID: 3422122742021021796, guid: a85df07ca0fe48346920efa8a2f55651, type: 3}
+  dzwiekSlimu: {fileID: 8300000, guid: 14baf74c6c64dcd4896aa9d2afac78eb, type: 3}
 --- !u!61 &473247526
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2206,6 +2212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   apteczka: {fileID: 1535076615}
+  dzwiekPb: {fileID: 3422122742021021796, guid: a85df07ca0fe48346920efa8a2f55651, type: 3}
+  dzwiekSlimu: {fileID: 8300000, guid: 14baf74c6c64dcd4896aa9d2afac78eb, type: 3}
 --- !u!61 &539405098
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2825,6 +2833,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   apteczka: {fileID: 2035147186}
+  dzwiekPb: {fileID: 3422122742021021796, guid: a85df07ca0fe48346920efa8a2f55651, type: 3}
+  dzwiekSlimu: {fileID: 8300000, guid: 14baf74c6c64dcd4896aa9d2afac78eb, type: 3}
 --- !u!61 &624677689
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4578,6 +4588,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   apteczka: {fileID: 849356098}
+  dzwiekPb: {fileID: 3422122742021021796, guid: a85df07ca0fe48346920efa8a2f55651, type: 3}
+  dzwiekSlimu: {fileID: 8300000, guid: 14baf74c6c64dcd4896aa9d2afac78eb, type: 3}
 --- !u!61 &1060754932
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5144,6 +5156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   apteczka: {fileID: 1999282897}
+  dzwiekPb: {fileID: 3422122742021021796, guid: a85df07ca0fe48346920efa8a2f55651, type: 3}
+  dzwiekSlimu: {fileID: 8300000, guid: 14baf74c6c64dcd4896aa9d2afac78eb, type: 3}
 --- !u!61 &1121177389
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5870,6 +5884,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   apteczka: {fileID: 157226509}
+  dzwiekPb: {fileID: 3422122742021021796, guid: a85df07ca0fe48346920efa8a2f55651, type: 3}
+  dzwiekSlimu: {fileID: 8300000, guid: 14baf74c6c64dcd4896aa9d2afac78eb, type: 3}
 --- !u!61 &1302942069
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7402,6 +7418,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   apteczka: {fileID: 151304598}
+  dzwiekPb: {fileID: 3422122742021021796, guid: a85df07ca0fe48346920efa8a2f55651, type: 3}
+  dzwiekSlimu: {fileID: 8300000, guid: 14baf74c6c64dcd4896aa9d2afac78eb, type: 3}
 --- !u!61 &1540619319
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7605,6 +7623,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   apteczka: {fileID: 1524233789}
+  dzwiekPb: {fileID: 3422122742021021796, guid: a85df07ca0fe48346920efa8a2f55651, type: 3}
+  dzwiekSlimu: {fileID: 8300000, guid: 14baf74c6c64dcd4896aa9d2afac78eb, type: 3}
 --- !u!61 &1584088475
 BoxCollider2D:
   m_ObjectHideFlags: 0

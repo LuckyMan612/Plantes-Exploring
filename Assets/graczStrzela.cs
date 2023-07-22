@@ -22,6 +22,12 @@ public class graczStrzela : MonoBehaviour
             GameObject strzala = Instantiate(strzalaPb);
             strzala.transform.position = transform.position;
             strzala.GetComponent<strzala>().wCoTrafi = clickPosition;
+            czyMozeStrzelic = false;
+            Invoke("ustawNaTak", 0.5f);
         }
+    }
+    void ustawNaTak()
+    {
+        czyMozeStrzelic = true;
     }
 }

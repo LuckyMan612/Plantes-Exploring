@@ -122,6 +122,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   player: {fileID: 0}
+  zdrowie: 100
+  pozycja: {x: 0, y: 0, z: 0}
+  isMoving: 0
+  czyMozeStrzelic: 1
+  strzalaPb: {fileID: 2056220229514511348, guid: 23f3a57d2421b11448b3466583a62d32, type: 3}
 --- !u!61 &-1266499252257034205
 BoxCollider2D:
   m_ObjectHideFlags: 0

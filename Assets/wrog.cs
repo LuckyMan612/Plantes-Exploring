@@ -9,6 +9,9 @@ public class wrog : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject player;
     public int zdrowie = 50;
+    public bool isMoving;
+    public bool czyMozeStrzelic = true;
+    public GameObject strzalaPb;
 
     void Start()
     {
@@ -18,6 +21,8 @@ public class wrog : MonoBehaviour
 
     void Update()
     {
+
+
         Vector2 direction = (player.transform.position - transform.position).normalized;
         rb.velocity = direction * speed;
         if (zdrowie <= 0)
@@ -25,4 +30,41 @@ public class wrog : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("wrog"))
+        {
+            if (czyMozeStrzelic)
+            {
+                GameObject strzala = Instantiate(strzalaPb);
+                strzala.transform.position = transform.position;
+                strzala.GetComponent<strzala>().wCoTrafi = player.transform.position;
+                strzala.tag = "wGracza";
+                czyMozeStrzelic = false;
+                Invoke("cooldownStrzelania", 1);
+            }
+        }
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("wrog"))
+        {
+            if (czyMozeStrzelic)
+            {
+                GameObject strzala = Instantiate(strzalaPb);
+                strzala.transform.position = transform.position;
+                strzala.GetComponent<strzala>().wCoTrafi = player.transform.position;
+                strzala.tag = "wGracza";
+                czyMozeStrzelic = false;
+                Invoke("cooldownStrzelania", 1);
+            }
+        }
+
+    }
+    void cooldownStrzelania()
+    {
+        czyMozeStrzelic = true;
+    }
+    
+
 }

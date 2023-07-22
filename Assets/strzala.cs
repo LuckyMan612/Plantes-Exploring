@@ -27,18 +27,25 @@ public class strzala : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("wrog"))
+        if (tag == "strzala")
         {
-            Debug.Log("trafiono");
-            collision.gameObject.GetComponent<wrog>().zdrowie -= 50;
+            if (collision.gameObject.CompareTag("wrog"))
+            {
+                Debug.Log("trafiono");
+                collision.gameObject.GetComponent<wrog>().zdrowie -= 50;
+            }
         }
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("wrog"))
+        if (tag == "strzala")
         {
-            Debug.Log("trafiono");
-            collision.gameObject.GetComponent<wrog>().zdrowie -= 50;
+            if (collision.gameObject.CompareTag("wrog"))
+            {
+                Debug.Log("trafiono");
+                collision.gameObject.GetComponent<wrog>().zdrowie -= 50;
+            }
         }
     }
 }

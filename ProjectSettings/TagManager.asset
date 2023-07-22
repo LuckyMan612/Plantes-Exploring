@@ -6,6 +6,8 @@ TagManager:
   tags:
   - planeta
   - wrog
+  - strzala
+  - wGracza
   layers:
   - Default
   - TransparentFX

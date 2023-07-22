@@ -21,6 +21,7 @@ public class Apteczka : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<hpIBoost>().hp = 200;
+            this.gameObject.SetActive(false);
             ao.odrodz();
         }
     }
@@ -29,6 +30,7 @@ public class Apteczka : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<hpIBoost>().hp = 200;
+            this.gameObject.SetActive(false);
             ao.odrodz();
         }
     }

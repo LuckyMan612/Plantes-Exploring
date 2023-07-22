@@ -7,7 +7,7 @@ public class wrog : MonoBehaviour
 {
     public float speed = 5.0f;
     private Rigidbody2D rb;
-    private GameObject player;
+    public GameObject player;
 
     void Start()
     {

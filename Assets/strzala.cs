@@ -8,10 +8,15 @@ public class strzala : MonoBehaviour
     public float speed = 8.0f;
     private Rigidbody2D rb;
     public Vector3 wCoTrafi;
+    public AudioClip[] ac;
+    public GameObject dzwiekPb;
+    public AudioClip dzwiekUmieraniaRobota;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        GetComponent<AudioSource>().clip = ac[Random.Range(0, ac.Length)];
+        GetComponent<AudioSource>().Play();
     }
 
     void Update()
@@ -33,6 +38,10 @@ public class strzala : MonoBehaviour
             {
                 Debug.Log("trafiono");
                 collision.gameObject.GetComponent<wrog>().zdrowie -= 50;
+                GameObject zrespiony = Instantiate(dzwiekPb);
+                zrespiony.GetComponent<AudioSource>().clip = dzwiekUmieraniaRobota;
+                zrespiony.GetComponent<AudioSource>().volume = 0.5f;
+                zrespiony.GetComponent<AudioSource>().Play();
             }
         }
 
@@ -45,6 +54,10 @@ public class strzala : MonoBehaviour
             {
                 Debug.Log("trafiono");
                 collision.gameObject.GetComponent<wrog>().zdrowie -= 50;
+                GameObject zrespiony = Instantiate(dzwiekPb);
+                zrespiony.GetComponent<AudioSource>().clip = dzwiekUmieraniaRobota;
+                zrespiony.GetComponent<AudioSource>().volume = 0.5f;
+                zrespiony.GetComponent<AudioSource>().Play();
             }
         }
     }

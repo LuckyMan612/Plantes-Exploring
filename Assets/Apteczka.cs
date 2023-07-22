@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Apteczka : MonoBehaviour
 {
-    public ApteczkaOdrodzenie ao;
+    public GameObject apteczka;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +21,8 @@ public class Apteczka : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<hpIBoost>().hp = 200;
-            this.gameObject.SetActive(false);
-            ao.odrodz();
+            apteczka.gameObject.SetActive(false);
+            Invoke("odrodzenie", 5);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,8 +30,12 @@ public class Apteczka : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<hpIBoost>().hp = 200;
-            this.gameObject.SetActive(false);
-            ao.odrodz();
+            apteczka.gameObject.SetActive(false);
+            Invoke("odrodzenie", 5);
         }
+    }
+    void odrodzenie()
+    {
+        apteczka.gameObject.SetActive(true);
     }
 }

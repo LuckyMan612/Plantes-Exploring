@@ -2068,6 +2068,7 @@ GameObject:
   m_Component:
   - component: {fileID: 682922349}
   - component: {fileID: 682922350}
+  - component: {fileID: 682922351}
   m_Layer: 0
   m_Name: spaceAstronauts_004
   m_TagString: Untagged
@@ -2142,6 +2143,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &682922351
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682922348}
+  m_Enabled: 1
+  m_SortingLayerID: 608554247
+  m_SortingLayer: 1
+  m_SortingOrder: 0
 --- !u!1 &690781003
 GameObject:
   m_ObjectHideFlags: 0

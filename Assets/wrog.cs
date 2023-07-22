@@ -8,6 +8,7 @@ public class wrog : MonoBehaviour
     public float speed = 5.0f;
     private Rigidbody2D rb;
     public GameObject player;
+    public int zdrowie = 50;
 
     void Start()
     {
@@ -19,5 +20,9 @@ public class wrog : MonoBehaviour
     {
         Vector2 direction = (player.transform.position - transform.position).normalized;
         rb.velocity = direction * speed;
+        if (zdrowie <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

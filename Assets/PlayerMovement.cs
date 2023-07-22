@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     bool czyJuzStartowal;
     public AudioSource fstart;
     public GameObject partiklesy;
+    public planety pty;
     
 
     private void Awake()
@@ -143,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
             dotyka = false;
             pter.gameObject.SetActive(true);
             pter.planetaTexture = coDotyka.GetComponent<SpriteRenderer>().sprite;
+            pty.planetyList.Remove(coDotyka);
             Destroy(coDotyka);
             pter.Nowa();
             

@@ -92,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
     {
         fstart.Play();
         partiklesy.SetActive(true);
+        partiklesy.GetComponentInChildren<ParticleSystem>().playOnAwake = false;
     }
     void WylaczWszystkieInne(GameObject ktory)
     {

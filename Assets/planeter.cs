@@ -29,6 +29,14 @@ public class planeter : MonoBehaviour
     [Header("Dzwieki")]
     public AudioSource taskInProgress;
     public AudioSource taskComplete;
+
+    [Header("Wyswietlacze")]
+    public GameObject podTemperatura;
+    public GameObject podCisnieniem;
+
+    [Header("Listy")]
+    public int[] temp;
+    public int[] cisn;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,9 +47,15 @@ public class planeter : MonoBehaviour
         wodaTxT.transform.parent.gameObject.SetActive(true);
         cisnienieTxT.transform.parent.gameObject.SetActive(true);
 
+        temperautura = temp[Random.Range(0, temp.Length)];
+        cisnienie = cisn[Random.Range(0, cisn.Length)];
+        woda = "100,146,312,462,354,175";
+
         planeta.GetComponent<SpriteRenderer>().sprite = planetaTexture;
-        temperautura = Random.Range(50, 100);
-        cisnienie = Random.Range(1200, 1600);
+        
+        if (temperautura < 20) podTemperatura.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+        if (cisnienie < 1005) podCisnieniem.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+
         foreach (GameObject item in coWylaczyc)
         {
             item.SetActive(false);
@@ -53,6 +67,7 @@ public class planeter : MonoBehaviour
         temperaturaTxT.GetComponent<TextMeshProUGUI>().text = temperautura.ToString() + "C";
         wodaTxT.GetComponent<TextMeshProUGUI>().text = woda.ToString() + "L";
         cisnienieTxT.GetComponent<TextMeshProUGUI>().text = cisnienie.ToString() + "hPa";
+
         if (!temperaturaTxT.transform.parent.gameObject.activeInHierarchy && !wodaTxT.transform.parent.gameObject.activeInHierarchy && !cisnienieTxT.transform.parent.gameObject.activeInHierarchy)
         {
             taskComplete.Play();
@@ -66,16 +81,12 @@ public class planeter : MonoBehaviour
     public void PodwyzszTemperature()
     {
         temperautura += 10;
+        sprawdzajTemperature();
     }
     public void podnizszTemperature()
     {
         temperautura -= 10;
-        if (temperautura <= 20)
-        {
-            _temperatura = true;
-            temperaturaTxT.transform.parent.gameObject.SetActive(false);
-            taskInProgress.Play();
-        }
+        sprawdzajTemperature();
     }
     public void podwyzszWode()
     {
@@ -90,15 +101,29 @@ public class planeter : MonoBehaviour
     }
     public void podwyzszCisnienie()
     {
-        cisnienie += 15;
+        cisnienie += 10;
+        sprawdzajCisnienie();
     }
     public void podnizszCisnienie()
     {
-        cisnienie -= 15;
-        if (cisnienie <= 1005)
+        cisnienie -= 10;
+        sprawdzajCisnienie();
+    }
+    private void sprawdzajCisnienie()
+    {
+        if (cisnienie == 1000)
         {
             _cisnienie = true;
             cisnienieTxT.transform.parent.gameObject.SetActive(false);
+            taskInProgress.Play();
+        }
+    }
+    private void sprawdzajTemperature()
+    {
+        if (temperautura == 20)
+        {
+            _temperatura = true;
+            temperaturaTxT.transform.parent.gameObject.SetActive(false);
             taskInProgress.Play();
         }
     }

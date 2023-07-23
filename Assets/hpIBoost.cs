@@ -26,9 +26,14 @@ public class hpIBoost : MonoBehaviour
     void Update()
     {
         hpSlider.value = hp;
-        if (hp == 0)
+        if (hp < 0)
         {
             SceneManager.LoadScene(0);
+        }
+        if (hp > 500)
+        {
+            Debug.Log("Wiecej");
+            hp = 500;
         }
     }
 

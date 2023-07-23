@@ -16,15 +16,14 @@ public class Apteczka : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (collision.gameObject.GetComponent<hpIBoost>().hp != 1000)
+            if (collision.gameObject.GetComponent<hpIBoost>().hp != 500)
             {
-                collision.gameObject.GetComponent<hpIBoost>().hp = 1000;
+                collision.gameObject.GetComponent<hpIBoost>().hp += 250;
                 apteczka.gameObject.SetActive(false);
                 Dzwiek();
                 Invoke("odrodzenie", 5);
@@ -35,9 +34,9 @@ public class Apteczka : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (collision.gameObject.GetComponent<hpIBoost>().hp != 1000)
+            if (collision.gameObject.GetComponent<hpIBoost>().hp != 500)
             {
-                collision.gameObject.GetComponent<hpIBoost>().hp = 1000;
+                collision.gameObject.GetComponent<hpIBoost>().hp += 250;
                 apteczka.gameObject.SetActive(false);
                 Dzwiek();
                 Invoke("odrodzenie", 5);

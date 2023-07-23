@@ -26,5 +26,6 @@ public class wrogowieRespieni : MonoBehaviour
         zrespieni.Add(zrespiony);
         zrespiony.transform.parent = parent.transform;
         zrespiony.transform.position = transform.position + new Vector3(Random.Range(20, 50), Random.Range(20, 50));
+        StartCoroutine(respienie());
     }
 }

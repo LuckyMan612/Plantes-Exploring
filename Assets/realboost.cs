@@ -5,6 +5,7 @@ using UnityEngine;
 public class realboost : MonoBehaviour
 {
     public hpIBoost hpiboost;
+    public bool boosting;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +17,15 @@ public class realboost : MonoBehaviour
     {
         boost();
     }
+    public void wlaczBoost()
+    {
+        boosting = true;
+    }
     void boost()
     {
-        if (hpiboost.boostEnabled && Input.GetKeyDown(hpiboost.boostKey))
+        if (hpiboost.boostEnabled && Input.GetKeyDown(hpiboost.boostKey) || hpiboost.boostEnabled && boosting)
         {
+            boosting = false;
             hpiboost.boostEnabled = false;
             hpiboost.staraWartosc = hpiboost.GetComponent<PlayerMovement>().moveSpeed;
             hpiboost.GetComponent<PlayerMovement>().moveSpeed = hpiboost.speedOnBoost;

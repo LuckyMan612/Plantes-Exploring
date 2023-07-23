@@ -22,9 +22,9 @@ public class Apteczka : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (collision.gameObject.GetComponent<hpIBoost>().hp != 200)
+            if (collision.gameObject.GetComponent<hpIBoost>().hp != 1000)
             {
-                collision.gameObject.GetComponent<hpIBoost>().hp = 200;
+                collision.gameObject.GetComponent<hpIBoost>().hp = 1000;
                 apteczka.gameObject.SetActive(false);
                 Dzwiek();
                 Invoke("odrodzenie", 5);
@@ -35,9 +35,9 @@ public class Apteczka : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (collision.gameObject.GetComponent<hpIBoost>().hp != 200)
+            if (collision.gameObject.GetComponent<hpIBoost>().hp != 1000)
             {
-                collision.gameObject.GetComponent<hpIBoost>().hp = 200;
+                collision.gameObject.GetComponent<hpIBoost>().hp = 1000;
                 apteczka.gameObject.SetActive(false);
                 Dzwiek();
                 Invoke("odrodzenie", 5);

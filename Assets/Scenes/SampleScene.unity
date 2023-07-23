@@ -1658,9 +1658,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 200
+  m_MaxValue: 1000
   m_WholeNumbers: 0
-  m_Value: 200
+  m_Value: 888
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3866,7 +3866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0566f12eedb91d34b862eeb92de07058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 200
+  hp: 1000
   hpSlider: {fileID: 463203238}
   boostKey: 304
   boostEnabled: 1

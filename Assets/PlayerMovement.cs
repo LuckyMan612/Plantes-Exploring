@@ -22,7 +22,64 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource fstart;
     public GameObject partiklesy;
     public planety pty;
-    
+    [Header("ustawienie")]
+    public bool _gora;
+    public bool _prawo;
+    public bool _lewo;
+    public bool _dol;
+    public bool klawiszE;
+    // Start is called before the first frame update
+    public void ustaw(string ktory)
+    {
+        switch (ktory)
+        {
+            case "gora":
+                _gora = true;
+                break;
+            case "dol":
+                _dol = true;
+                break;
+            case "prawo":
+                _prawo = true;
+                break;
+            case "lewo":
+                _lewo = true;
+                break;
+            case "e":
+                klawiszE = true;
+                break;
+            default:
+                break;
+        }
+    }
+    public void wylacz(string ktory)
+    {
+        switch (ktory)
+        {
+            case "gora":
+                _gora = false;
+                break;
+            case "dol":
+                _dol = false;
+                break;
+            case "prawo":
+                _prawo = false;
+                break;
+            case "lewo":
+                _lewo = false;
+                break;
+            default:
+                break;
+        }
+    }
+    void sprawdzajIWykonuj()
+    {
+        if (_lewo) Lewo();
+        else if (_prawo) Prawo();
+        else if (_gora) Gora();
+        else if (_dol) Dol();
+    }
+
 
     private void Awake()
     {
@@ -39,54 +96,71 @@ public class PlayerMovement : MonoBehaviour
         WykrywaniePredkosci();
         wykrywanieWejsciaDoPlanety();
         partikle();
+        sprawdzajIWykonuj();
     }
 
     void Movement()
     {
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-            transform.rotation = Quaternion.Euler(0, 0, -90);
-            WylaczWszystkieInne(prawo);
-            if (!czyJuzStartowal)
-            {
-                firststart();
-                czyJuzStartowal = true;
-            }
+            Prawo();
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            transform.position += Vector3.right * -moveSpeed * Time.deltaTime;
-            transform.rotation = Quaternion.Euler(0, 0, 90);
-            WylaczWszystkieInne(lewo);
-            if (!czyJuzStartowal)
-            {
-                firststart();
-                czyJuzStartowal = true;
-            }
+            Lewo();
         }
 
         else if (Input.GetKey(KeyCode.W))
         {
-            transform.position += Vector3.up * moveSpeed * Time.deltaTime;
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-            WylaczWszystkieInne(gora);
-            if (!czyJuzStartowal)
-            {
-                firststart();
-                czyJuzStartowal = true;
-            }
+            Gora();
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            transform.position += Vector3.up * -moveSpeed * Time.deltaTime;
-            transform.rotation = Quaternion.Euler(0, 0, 180);
-            WylaczWszystkieInne(dol);
-            if (!czyJuzStartowal)
-            {
-                firststart();
-                czyJuzStartowal = true;
-            }
+            Dol();
+        }
+    }
+    public void Prawo()
+    {
+        transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+        transform.rotation = Quaternion.Euler(0, 0, -90);
+        WylaczWszystkieInne(prawo);
+        if (!czyJuzStartowal)
+        {
+            firststart();
+            czyJuzStartowal = true;
+        }
+    }
+    public void Dol()
+    {
+        transform.position += Vector3.up * -moveSpeed * Time.deltaTime;
+        transform.rotation = Quaternion.Euler(0, 0, 180);
+        WylaczWszystkieInne(dol);
+        if (!czyJuzStartowal)
+        {
+            firststart();
+            czyJuzStartowal = true;
+        }
+    }
+    public void Lewo()
+    {
+        transform.position += Vector3.right * -moveSpeed * Time.deltaTime;
+        transform.rotation = Quaternion.Euler(0, 0, 90);
+        WylaczWszystkieInne(lewo);
+        if (!czyJuzStartowal)
+        {
+            firststart();
+            czyJuzStartowal = true;
+        }
+    }
+    public void Gora()
+    {
+        transform.position += Vector3.up * moveSpeed * Time.deltaTime;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        WylaczWszystkieInne(gora);
+        if (!czyJuzStartowal)
+        {
+            firststart();
+            czyJuzStartowal = true;
         }
     }
     void firststart()
@@ -139,8 +213,9 @@ public class PlayerMovement : MonoBehaviour
     
     void wykrywanieWejsciaDoPlanety()
     {
-        if (dotyka && Input.GetKey(KeyCode.E))
+        if (dotyka && Input.GetKey(KeyCode.E) || dotyka && klawiszE)
         {
+            klawiszE = false;
             dotyka = false;
             pter.gameObject.SetActive(true);
             pter.planetaTexture = coDotyka.GetComponent<SpriteRenderer>().sprite;

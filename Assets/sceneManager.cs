@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class sceneManager : MonoBehaviour
 {
+    public Animator canvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +20,9 @@ public class sceneManager : MonoBehaviour
     public void ZmienScene(int jaka)
     {
         SceneManager.LoadScene(jaka);
+    }
+    public void PrzyciskPlay()
+    {
+        canvas.Play("c");
     }
 }

@@ -22,20 +22,26 @@ public class Apteczka : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<hpIBoost>().hp = 200;
-            apteczka.gameObject.SetActive(false);
-            Dzwiek();
-            Invoke("odrodzenie", 5);
+            if (collision.gameObject.GetComponent<hpIBoost>().hp != 200)
+            {
+                collision.gameObject.GetComponent<hpIBoost>().hp = 200;
+                apteczka.gameObject.SetActive(false);
+                Dzwiek();
+                Invoke("odrodzenie", 5);
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<hpIBoost>().hp = 200;
-            apteczka.gameObject.SetActive(false);
-            Dzwiek();
-            Invoke("odrodzenie", 5);
+            if (collision.gameObject.GetComponent<hpIBoost>().hp != 200)
+            {
+                collision.gameObject.GetComponent<hpIBoost>().hp = 200;
+                apteczka.gameObject.SetActive(false);
+                Dzwiek();
+                Invoke("odrodzenie", 5);
+            }
         }
     }
     void odrodzenie()

@@ -16,7 +16,7 @@ public class hpIBoost : MonoBehaviour
     public Slider boostSlider;
 
     public float staraWartosc;
-    // Start is called before the first frame update
+
     void Start()
     {
         

@@ -10,6 +10,7 @@ public class planety : MonoBehaviour
     public GameObject planetyParent;
     public GameObject astronauta;
     public int speed = 30;
+    public GameObject cospawnic;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,7 @@ public class planety : MonoBehaviour
         //ManualLookAt2D();
         if (planetyList.Count == 0)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(2);
         }
     }
     void Astronauta()
@@ -44,6 +45,10 @@ public class planety : MonoBehaviour
             taPlaneta.transform.position = new Vector2(transform.position.x, transform.position.y) + new Vector2(Random.Range(-70, 70), Random.Range(-70, 70));
             taPlaneta.transform.SetParent(planetyParent.transform, true);
         }
+        GameObject zespawnione = Instantiate(cospawnic);
+        zespawnione.transform.position = new Vector2(70, 70);
+        GameObject _zespawnione = Instantiate(cospawnic);
+        _zespawnione.transform.position = new Vector2(-70, -70);
     }
     // Assign in inspector the gameobject you want to look at
 
